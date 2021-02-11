@@ -17,6 +17,18 @@ lt.forEach(element => {
         element["salary"]+=5*element["salary"];
     }
 });
+function groupBy(objectArray, property) {
+    return objectArray.reduce(function (acc, obj) {
+      var key = obj[property];
+      if (!acc[key]) {
+        acc[key] = [];
+      }
+      acc[key].push(obj);
+      return acc;
+    }, {});
+}
+var groupedAge = groupBy(lt, "age");
+console.log(groupAge)
 
 lt.forEach(element => {
     for (var key in element) {
