@@ -1,0 +1,38 @@
+Session : Basics of Hadoop & HDFS
+Assignment
+
+Q1. Ideally what should be the replication factor in Hadoop?
+Ans. 3
+
+Q2. Explain what happens if during the PUT operation, HDFS block is assigned a replication factor 1 instead of the default value 3.
+Ans. Replication factor is a property in HDFS to decide the number of times a block is to be replicated. For every block and replication factor ‘n’, the cluster will have n-1 replication factor.
+So, when a replication factor of 1 is assigned, then only a single copy of data will be available. And if it crashes by any means, then all the data will be lost.
+
+Q3. What happens when a user submits a Hadoop job when the NameNode is down- does the job get in to hold or does it fail.
+Ans. The Hadoop job fails when the NameNode is down.
+
+Q4. What happens when a user submits a Hadoop job when the Job Tracker is down- does the job get in to hold or does it fail.
+Ans. The Hadoop job fails when the Job Tracker is down.
+
+Q5. What is a block in HDFS, can you change the block size of HDFS files? Why is the block size 64MB/128MB?
+Ans. Files in Hadoop are broken into small size chunks known as block.
+     The block size are 64MB/128MB because if there will be small size blocks then there will be too many blocks and so much to handle. 64Mb/ 128MB blocks will improve NameNode and MapReduce performance.
+
+Q6. Is Namenode machine same as DataNode machine as in terms of hardware?
+Ans. Unlike the DataNodes, a NameNode is a highly available server. That manages the File System Namespace and maintains the metadata information. Metadata information is a number of blocks, their location, replicas and other details. It also executes file system execution such as naming, closing, opening files/directories. Therefore, NameNode requires higher RAM for storing the metadata for millions of files. Whereas, DataNode is responsible for storing actual data in HDFS. It performs read and write operation as per request of the clients. Therefore, Datanode needs to have a higher disk capacity for storing huge data sets.
+
+Q7.  How would you check whether your NameNode is working or not?
+Ans. We can use 'jps' command which lists all the hadoop daemon that are running.
+
+Q8. Replication causes data redundancy, then why is it pursued in HDFS?
+Ans. One of the main feature of HDFS is that it runs with commodity hardware.Hence, it has a higher chances of getting crashed often. So, to make it  highly fault-tolerant, HDFS replicates and stores data at different places.
+
+Q9. What are the five V’s of Big Data?
+Ans. Volume - It refers to the large amount of data that is generated continously.
+Velocity - Velocity refers to the high speed of accumulation of data.
+Variety - It refers to nature of data that is structured, semi-structured and unstructured data.
+Veracity - It refers to inconsistencies and uncertainty in data.
+Value - Data in itself is of no use or importance but it needs to be converted into something valuable to extract Information.
+
+Q10. How many NameNodes can you run on a single Hadoop cluster?
+Ans. In hadoop, we can have multiple or one node for each rack.Earlier before Hadoop 2.x we could have only 1 namenode.
