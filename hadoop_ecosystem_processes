@@ -1,0 +1,36 @@
+Session: Hadoop Ecosystem & Processes
+Assignment
+
+Q1. What is the port number for NameNode, Task Tracker and Job Tracker?
+Ans. Namenode - 50070
+Task Tacker- 50060
+Job Tracker- 50030
+
+Q2. What is the main purpose of the Hadoop fsck command?
+Ans. The fsck Hadoop command is used to check the health of the HDFS. HDFS supports the fsck command to check for various inconsistencies. It is designed for reporting problems with various files.
+
+Q3. What does ‘jps’ command do?
+Ans. We use the 'jps' command to check if all the Hadoop daemons such as DataNode, NameNode, NodeManager etc are properly running. This is a basic check to see if all the required Hadoop services are running or not before going forward with any Hadoop operations or any additional setups.
+
+Q4. What are the benefits YARN brings into Hadoop?
+Ans. 
+1. Cluster Utilization : YARN lets you use the Hadoop cluster in a dynamic way, rather than in a static manner by which MapReduce applications were using it, and this is a better and optimized way of utilizing the cluster.
+
+2. Scalability : YARN gives the power of scalability to the Hadoop cluster. YARN ResourceManager(RM) service is the central controlling authority for resource management and it makes allocation decisions.
+
+3. Multi-tenancy : YARN lets you access various proprietary and open-source engines for deploying Hadoop as a standard for real-time, interactive, and batch processing tasks that are able to access the same dataset and parse it.
+
+Q5. How do you setup  ResourceManager to use CapacityScheduler?
+Ans. To configure the ResourceManager to use the CapacityScheduler, set the value of the property 'yarn.resourcemanager.scheduler.class' as 'org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler' in the conf/yarn-site.xml file.
+
+Q6. How do you setup ResourceManager to use FairScheduler?
+Ans. To configure the ResourceManager to use the FairScheduler, set the value of the property 'yarn.resourcemanager.scheduler.class' as 'org.apache.hadoop.yarn.server.resourcemanager.scheduler.fair.FairScheduler' in the conf/yarn-site.xml file.
+
+Q7. Is there a hdfs command to see available free space in hdfs?
+Ans. Yes, -df command shows free space in HDFS.
+
+Q8. Since the data is replicated thrice in HDFS, does it mean that any calculation done on one node will also be replicated on the other two?
+Ans. No, calculations will be done only on the original data. The master node will know which node exactly has that particular data. In case, if one of the nodes is not responding, it is assumed to be failed. Only then, the required calculation will be done on the second replica. 
+
+
+
